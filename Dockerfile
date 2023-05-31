@@ -1,2 +1,2 @@
-FROM bitnami/php-fpm:8.0 # or any other
+FROM bitnami/php-fpm:8.0
 COPY php/ /app
