@@ -1,3 +1,4 @@
 <?php
-echo exec('whoami');
-php?>
+echo '<p>Sample TiimePDP apps</p>';
+
+?>
