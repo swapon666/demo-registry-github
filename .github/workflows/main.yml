@@ -30,6 +30,8 @@ jobs:
         
       - name: Composer
         uses: php-actions/composer@v6
+        with:
+          php_extensions: ext-amqp ext-sockets
         
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
