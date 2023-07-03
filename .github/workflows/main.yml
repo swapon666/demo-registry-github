@@ -31,6 +31,8 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           coverage: none
+          
+      - uses: "ramsey/composer-install@v1"
         
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
