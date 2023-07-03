@@ -27,6 +27,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        
+      - name: Composer
+        uses: php-actions/composer@v7
+        with:
+          php_version: "7.1"
+          version: 1
+        
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
         with:
