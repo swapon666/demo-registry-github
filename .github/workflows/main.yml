@@ -76,3 +76,12 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          
+      - name: Build and push Docker image tiime
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./docker/php/
+          file: ./docker/php/Dockerfile
+          push: true
+          tags: tiimepdp
+          name: test
