@@ -47,8 +47,8 @@ COPY docker/php/others.ini /usr/local/etc/php-fpm.d/
 
 COPY docker/php/symfony.pool.conf /etc/php8/php-fpm.d/
 
-ARG UID=1000
-ARG GID=1000
+env UID=1000
+env GID=1000
 
 RUN groupadd -g $GID local \
     && useradd -rm -d /home/local -s /bin/bash -g $GID -G sudo -u $UID local \
