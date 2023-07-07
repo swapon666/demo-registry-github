@@ -59,4 +59,5 @@ jobs:
           file: ./docker/php/Dockerfile
           push: true
           tags: tiimepdp
+          labels: ${{ steps.meta.outputs.labels }}
 
