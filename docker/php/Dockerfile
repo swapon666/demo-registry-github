@@ -45,14 +45,15 @@ RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-set
 COPY docker/php/symfony.ini /usr/local/etc/php-fpm.d/
 COPY docker/php/others.ini /usr/local/etc/php-fpm.d/
 
-#COPY docker/php/symfony.pool.conf /etc/php8/php-fpm.d/
+COPY docker/php/symfony.pool.conf /etc/php8/php-fpm.d/
+COPY . /var/www/html
 
-env UID=1000
-env GID=1000
+ARG UID=1000
+ARG GID=1000
 
-#RUN groupadd -g $GID local \
-#    && useradd -rm -d /home/local -s /bin/bash -g $GID -G sudo -u $UID local \
-#    && chown -R $UID:$GID /var/www
+RUN groupadd -g $GID local \
+    && useradd -rm -d /home/local -s /bin/bash -g $GID -G sudo -u $UID local \
+    && chown -R $UID:$GID /var/www
 
 CMD ["php-fpm", "-F"]
 
