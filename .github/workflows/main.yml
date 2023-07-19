@@ -29,7 +29,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+      - name: SonarQube Scan
+        run: sonar-scanner
+           -Dsonar.host.url=http://80.247.12.171
+           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+           -Dsonar.organization=test
+           -Dsonar.projectKey=test
+           -Dsonar.sources=$GITHUB_WORKSPACE
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
