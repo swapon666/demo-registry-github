@@ -34,7 +34,7 @@ jobs:
       - name: SonarQube Scan
         run: |
            sudo echo "80.247.12.171 sonar.tiimepdp.com" | sudo tee -a /etc/hosts
-           sonar-scanner -Dsonar.host.url=http://sonar.tiimepdp.com -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.organization=test -Dsonar.projectKey=test -Dsonar.sources=$GITHUB_WORKSPACE
+           sonar-scanner -Dsonar.host.url=http://sonar.tiimepdp.com -Dsonar.login=${{ secrets.SONAR_TOKEN }}  -Dsonar.projectKey=tiimepdp -Dsonar.sources=$GITHUB_WORKSPACE
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
