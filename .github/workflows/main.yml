@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Setup SonarQube
+        uses: warchant/setup-sonar-scanner@v5
       - name: SonarQube Scan
         run: sonar-scanner
            -Dsonar.host.url=http://80.247.12.171
