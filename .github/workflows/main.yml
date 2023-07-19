@@ -32,7 +32,9 @@ jobs:
       - name: Setup SonarQube
         uses: warchant/setup-sonar-scanner@v5
       - name: SonarQube Scan
-        run: sudo echo "80.247.12.171 sonar.tiimepdp.com" >> /etc/hosts && sonar-scanner
+        run: |
+           sudo echo "80.247.12.171 sonar.tiimepdp.com" | sudo tee -a /etc/hosts ;
+           sonar-scanner
            -Dsonar.host.url=http://sonar.tiimepdp.com
            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
            -Dsonar.organization=test
