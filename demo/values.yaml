@@ -65,6 +65,7 @@ ingress:
 app:
   password: test
   test: coucou
+  autre: test
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
