@@ -48,10 +48,12 @@ ingress:
   className: "nginx"
   annotations: 
     kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    cert-manager.io/issuer: selfsigned-issuer
   hosts:
     - host: demo.kube
-  tls: []
+  tls:
+    enabled: true
+  #tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
